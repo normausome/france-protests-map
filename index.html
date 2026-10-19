@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>France unrest, Sept–Oct 2026: incidents named by news outlets</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside id="sidebar">
+  <button id="toggle" type="button" aria-expanded="true" aria-controls="panel">Hide panel</button>
+  <div id="panel">
+    <h1>France unrest, Sept–Oct 2026: incidents named by news outlets</h1>
+    <ul class="summary">
+      <li>The movement began as a high-school (lycéen) protest at Lycée Saint-Exupéry in Créteil on 17–18 Sept over teacher shortages and Parcoursup, and went national from 28 Sept.
+        (<a href="https://www.theguardian.com/world/2026/oct/17/protests-france-high-prices-social-security-gilets-jaunes" target="_blank" rel="noopener">Guardian</a>,
+        <a href="https://www.bbc.com/news/articles/c574pdzl0k4no" target="_blank" rel="noopener">BBC</a>)</li>
+      <li>On the national day of action, Sat 17 Oct, about 550,000 marched per the Interior Ministry (110,000 in Paris); the CGT says 800,000.
+        (<a href="https://www.theguardian.com/world/2026/oct/17/protests-france-high-prices-social-security-gilets-jaunes" target="_blank" rel="noopener">Guardian</a>,
+        <a href="https://www.bbc.com/news/articles/c574pdzl0k4no" target="_blank" rel="noopener">BBC</a>)</li>
+      <li>The Interior Ministry counted 2,397 interpellations on 17 Oct and 997 police and gendarmes injured, 7 seriously.
+        (<a href="https://www.bfmtv.com/police-justice/violences-du-7-octobre-le-ministere-de-l-interieur-recense-2-397-interpellations-997-policiers-et-gendarmes-blesses-dont-7-graves_AD-202610180350.html" target="_blank" rel="noopener">BFMTV</a>,
+        <a href="https://www.rfi.fr/fr/en-bref/20261018-france-2397-interpellations-997-policiers-et-gendarmes-bless%C3%A9s-dont-7-graves" target="_blank" rel="noopener">RFI</a>)</li>
+      <li>About 3,000 businesses were looted or vandalised according to PM Lecornu; CCI France says about 2,000 were directly hit.
+        (<a href="https://www.nbcnews.com/world/europe/france-violence-riots-looting-paris-limoges-curfews-macron-protests-rcna604292" target="_blank" rel="noopener">NBC</a>,
+        <a href="https://www.bbc.com/news/live/c893v4gx2e47t" target="_blank" rel="noopener">BBC live</a>)</li>
+    </ul>
+    <p class="disclaimer"><strong>Read this first:</strong> only incidents named by news outlets are mapped, not the full ~2,000–3,000 businesses hit. Data as of Oct 19, 2026. No private individuals are named. Locations are geocoded approximations.</p>
+    <p class="updated">Last updated: 19 Oct 2026, ~10:00 AM ET (16:00 Paris)</p>
+
+    <section id="filters">
+      <h2>Filters</h2>
+      <fieldset><legend>Severity</legend><div id="f-sev"></div></fieldset>
+      <fieldset><legend>Type</legend><div id="f-type"></div></fieldset>
+      <label>City <select id="f-city"></select></label>
+      <div class="dates">
+        <label>From <input type="date" id="f-from"></label>
+        <label>To <input type="date" id="f-to"></label>
+      </div>
+      <button id="reset" type="button">Reset filters</button>
+      <p id="count" aria-live="polite"></p>
+    </section>
+  </div>
+</aside>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.git
+.gitignore
+Dockerfile
+.dockerignore
+railway.json
+README.md
+REVIEW.md
+screenshot.png
+node_modules
+.DS_Store
