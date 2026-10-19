@@ -93,16 +93,21 @@ function onCluster(e) {
   const diag = map.project(b.getNorthEast(), STREET).distanceTo(map.project(b.getSouthWest(), STREET));
   if (diag > 40 && map.getBoundsZoom(b) <= STREET) { c.zoomToBounds({ padding: [40, 40] }); return; }
   if (map.getZoom() >= STREET) { c.spiderfy(); return; }
-  const first = c.getAllChildMarkers()[0];
+  const kids = c.getAllChildMarkers();
   let done = false;
   let tries = 0;
   const fan = () => {
     if (done) return;
     if (clusters._inZoomAnimation && tries++ < 10) { setTimeout(fan, 150); return; } // spiderfy is a no-op mid-animation
     done = true;
-    let p = first.__parent;
-    while (p && !p._icon && p.__parent) p = p.__parent;
-    if (p && p._icon) p.spiderfy();
+    // At street level the cluster may split; fan out the biggest remaining group, which is the one that will not separate.
+    let best = null;
+    kids.forEach((m) => {
+      let p = m.__parent;
+      while (p && !p._icon && p.__parent) p = p.__parent;
+      if (p && p._icon && (!best || p.getChildCount() > best.getChildCount())) best = p;
+    });
+    if (best) best.spiderfy();
   };
   clusters.once('animationend', fan);
   map.once('moveend', () => setTimeout(fan, 400));
