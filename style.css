@@ -32,6 +32,15 @@ body {
 }
 a { color: var(--accent); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+/* The map fills the viewport, so an outside outline would be clipped. */
+#map:focus-visible { outline-offset: -3px; }
+.skip {
+  position: fixed; z-index: 2000; top: 8px; left: 8px; padding: 8px 12px;
+  background: var(--card); color: var(--accent); border-radius: 8px; box-shadow: var(--shadow); font-weight: 600;
+  transform: translateY(-200%);
+}
+.skip:focus { transform: none; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 #map { position: fixed; inset: 0; background: var(--bg); }
 

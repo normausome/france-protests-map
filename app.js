@@ -52,7 +52,9 @@ const makeClusters = () => L.markerClusterGroup({
     const kids = c.getAllChildMarkers();
     const max = Math.max(...kids.map((m) => m.options.sev));
     const size = kids.length < 10 ? 30 : kids.length < 50 ? 36 : 44;
-    return L.divIcon({ html: String(kids.length), className: `cluster sev-${max}`, iconSize: [size, size] });
+    // Visually hidden text names the cluster for screen readers; SEVERITY labels come from index.html, not data.
+    const html = `${kids.length}<span class="vh"> incidents, most severe: ${SEVERITY[max]}. Select to zoom in.</span>`;
+    return L.divIcon({ html, className: `cluster sev-${max}`, iconSize: [size, size] });
   },
 }).addTo(map);
 

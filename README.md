@@ -8,6 +8,14 @@ Pins are coloured by severity (0 gathering, 1 vandalism, 2 break-in, 3 looted, 4
 
 The theme uses CSS `light-dark()`, which needs Chrome 123+, Safari 17.5+ or Firefox 120+. The Dark map button switches the UI and basemap between light and dark. It follows the system setting until you choose, then remembers the choice in `localStorage`. The dark basemap is the OSM tiles with a CSS invert filter. CARTO Dark Matter now needs an API key.
 
+## Accessibility
+
+- A "Skip to map" link is the first thing Tab reaches. All controls show a visible focus outline.
+- Every control has an accessible name: filters and dates use labels, the theme and Top cities buttons have `aria-label`, and pins use their `title` (city, type, severity). Cluster circles carry visually hidden text with the count and most severe incident.
+- The map is the `main` landmark and the sidebar is labelled. With the map focused, arrow keys pan and `+`/`-` zoom; Tab moves between pins and Enter opens a popup.
+- The incident count is announced politely when filters change, and an invalid date range is announced as an alert.
+- Severity colours are always paired with text labels. Animations are reduced when the system asks for reduced motion.
+
 ## Data
 
 `data/incidents.json` is an array of objects with these fields: `id`, `date`, `time`, `city`, `location`, `lat`, `lon`, `geocode_precision` (`address`, `street`, `neighborhood` or `city`), `type` (`looting`, `vandalism`, `break_in`, `fire_business`, `fire_vehicle`, `protest_gathering`, `fire_building`), `business_name`, `business_type`, `severity` (0–5), `description`, `source_url`, `source_name`, `published_at`, `corroboration`, `geocode_note`.

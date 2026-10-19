@@ -13,11 +13,12 @@
 <link rel="preload" href="vendor/markercluster-1.5.3/leaflet.markercluster.js" as="script">
 <link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
 <link rel="stylesheet" href="vendor/markercluster-1.5.3/MarkerCluster.css">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <script src="vendor/leaflet-1.9.4/leaflet.js" defer></script>
-<script src="app.js?v=3" defer></script>
+<script src="app.js?v=4" defer></script>
 </head>
 <body>
+<a class="skip" href="#map">Skip to map</a>
 <aside id="sidebar" aria-label="Incident summary and filters">
   <header id="head">
     <h1>France unrest, Sept–Oct 2026: incidents named by news outlets</h1>
@@ -81,6 +82,6 @@
     </section>
   </div>
 </aside>
-<div id="map"></div>
+<main id="map" aria-label="Incident map. Arrow keys pan, plus and minus zoom, Tab moves between pins."></main>
 </body>
 </html>
