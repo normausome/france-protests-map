@@ -32,6 +32,9 @@ body {
 }
 a { color: var(--accent); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+/* The map fills the viewport, so an outside outline would be clipped. */
+#map:focus-visible { outline-offset: -3px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 #map { position: fixed; inset: 0; background: var(--bg); }
 
@@ -69,7 +72,7 @@ legend { font-weight: 600; padding: 0 4px; }
 fieldset label { display: flex; align-items: center; gap: 6px; min-height: 28px; cursor: pointer; }
 input[type=checkbox] { width: 18px; height: 18px; margin: 0; flex: none; }
 .field { display: block; margin-bottom: 8px; font-weight: 600; }
-select, input[type=date] {
+select, input[type=date], input[type=search] {
   display: block; width: 100%; margin-top: 3px; padding: 5px 6px; font: inherit; font-weight: 400;
   color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
 }
@@ -88,6 +91,57 @@ select, input[type=date] {
 #top-list button[aria-pressed=true] { font-weight: 600; }
 .stack { grid-column: 1 / -1; display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--line); }
 .stack span { background: var(--sev); }
+
+/* Skip link: off-screen until focused */
+.skip { position: fixed; z-index: 1100; top: 12px; left: -999px; padding: 8px 12px; background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); font-weight: 600; }
+.skip:focus { left: 400px; }
+
+/* Severity mix of the shown incidents. Fixed heights so the late render shifts nothing. */
+#mix-bar { height: 8px; border-radius: 4px; margin: 0 0 6px; }
+#mix { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 8px; min-height: 66px; font-variant-numeric: tabular-nums; }
+#mix li { display: flex; align-items: center; gap: 4px; min-height: 22px; white-space: nowrap; }
+#mix li.zero { color: var(--muted); }
+#mix strong { font-weight: 600; }
+
+/* Search */
+input[type=search] { -webkit-appearance: none; appearance: none; }
+.hint#q-hint { margin: -4px 0 10px; }
+
+/* Timeline: one bar per day, stacked by severity */
+h3.sub { font-size: 13px; margin: 12px 0 2px; }
+#timeline { list-style: none; padding: 0; margin: 4px 0 8px; display: flex; gap: 4px; height: 96px; }
+#timeline li { flex: 1; min-width: 0; display: flex; }
+#timeline button { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 2px; padding: 4px 2px 2px; background: none; border-color: transparent; font-size: 11px; line-height: 1.2; }
+#timeline button:hover, #timeline button[aria-pressed=true] { background: var(--bg); border-color: var(--line); }
+#timeline button[aria-pressed=true] { font-weight: 700; }
+#timeline button.out { opacity: .55; }
+#timeline .n { font-weight: 600; font-variant-numeric: tabular-nums; }
+#timeline .tbar { width: 70%; max-width: 32px; min-height: 0; flex: none; display: flex; flex-direction: column-reverse; border-radius: 3px 3px 0 0; overflow: hidden; background: var(--line); transition: height .2s; }
+#timeline .tbar span { background: var(--sev); }
+#timeline .d { color: var(--muted); white-space: nowrap; }
+
+/* Actions row and share box */
+.actions { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+.actions button { padding: 5px 8px; }
+#status { min-height: 1.5em; margin: 6px 0 0; }
+#share { display: block; width: 100%; margin-top: 4px; padding: 5px 6px; font: inherit; font-size: 12px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
+
+/* Incident list */
+#list-sec { margin-top: 16px; border-top: 1px solid var(--line); }
+#list-sec summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; gap: 6px; }
+#list-sec summary h2 { display: inline; margin: 0; }
+#list { list-style: none; padding: 0; margin: 0; }
+.item { padding: 8px 0; border-top: 1px solid var(--line); break-inside: avoid; }
+.item .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; color: var(--muted); font-size: 12px; }
+.item .meta .small { margin-left: auto; }
+.item h3 { margin: 4px 0 2px; font-size: 14px; }
+.item .loc { font-weight: 400; color: var(--muted); }
+.item p { margin: 3px 0; }
+.item .approx { color: light-dark(#8a4b00, #ffb366); font-style: italic; }
+button.small { padding: 2px 8px; font-size: 12px; }
+
+/* Spider legs follow the theme */
+.leaflet-cluster-spider-leg, path.spider-leg { stroke: var(--fg); }
 
 /* Map markers */
 .pin { border-radius: 50%; background: var(--sev); border: 1px solid rgb(0 0 0 / .65); box-shadow: 0 0 0 1px rgb(255 255 255 / .5); }
@@ -135,6 +189,26 @@ select, input[type=date] {
   #panel { max-height: calc(70vh - var(--peek)); max-height: calc(70dvh - var(--peek)); }
   .legend { max-width: 190px; font-size: 12px; }
 }
+@media (max-width: 700px) {
+  .skip:focus { left: 12px; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-spider-leg { transition: none; }
+  .leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-spider-leg, #timeline .tbar { transition: none; }
+}
+
+/* Print: the summary, sources, disclaimer and the incident list; no map. */
+.print-only { display: none; }
+@media print {
+  :root, :root[data-theme] { color-scheme: light !important; --shadow: none; }
+  #map, #theme, #toggle, .skip, .actions, #status, #share, .if-open, .if-closed,
+  #filters > h2, #filters .field, #q-hint, #filters fieldset, .dates, #date-warn, .item .small { display: none !important; }
+  #mix { grid-template-columns: repeat(3, 1fr); min-height: 0; }
+  #sidebar { position: static; width: auto; max-height: none; border: 0; box-shadow: none; display: block; }
+  #head { height: auto; overflow: visible; }
+  #panel { display: block !important; overflow: visible; max-height: none; padding: 0; }
+  .print-only { display: block; color: var(--muted); font-size: 12px; word-break: break-all; }
+  #list-sec summary { list-style: none; }
+  #list-sec summary::-webkit-details-marker { display: none; }
+  .item a::after { content: " " attr(href); font-size: 11px; color: var(--muted); word-break: break-all; }
+  #timeline button { border-color: var(--line); }
 }

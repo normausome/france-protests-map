@@ -1,10 +1,27 @@
 # France unrest, Sept–Oct 2026: incident map
 
-Built by Claude Code (Claude CLI, Sonnet). Performance and visual pass by Claude Code (Claude CLI, Opus).
+Built by Claude Code (Claude CLI, Sonnet). Performance and visual pass by Claude Code (Claude CLI, Opus). Round 3 (search, timeline, shareable links, list, export, print, accessibility) by Claude Code (cloud session, Fable).
 
 A static map of 151 incidents (looting, vandalism, arson, break-ins, gatherings) that news outlets named or located during the Sept–Oct 2026 unrest in France. Plain HTML, CSS and vanilla JS with Leaflet 1.9.4, Leaflet.markercluster 1.5.3 and OpenStreetMap tiles. No build step, no API keys.
 
-Pins are coloured by severity (0 gathering, 1 vandalism, 2 break-in, 3 looted, 4 partially burned, 5 destroyed). Hollow dashed pins are placed at a city centre only. Nearby pins are grouped into numbered clusters coloured by their most severe incident; select one to zoom in, and pins at the same spot spread out (spiderfy). Filter by severity, type, city and date, or pick a city in the Top cities list.
+Pins are coloured by severity (0 gathering, 1 vandalism, 2 break-in, 3 looted, 4 partially burned, 5 destroyed). Hollow dashed pins are placed at a city centre only. Nearby pins are grouped into numbered clusters coloured by their most severe incident, with a tooltip giving the city and severity counts. Selecting a cluster zooms in; pins that would not separate before street level (zoom 16) fan out there in one click (spiderfy), also with Enter on a focused cluster. Filter by severity, type, city, date and free text (accents ignored), or pick a city in the Top cities list or a day in the Timeline.
+
+## Features
+
+- **Search** matches city, street, business, type and description; accents and case are ignored.
+- **Timeline** shows incidents per day (stacked by severity) that match the other filters. Select a day to show only that day.
+- **Shown incidents by severity** summarises the current selection.
+- **Shareable links.** Filters and, once you move the map, the view live in the URL hash: `#city=Paris&sev=3,4,5&type=looting&from=2026-10-17&to=2026-10-17&q=pharmacie&map=48.8675,2.3640,16`. Only non-default parts are written. Copy link puts the current link on the clipboard; unknown values are ignored.
+- **Export CSV** downloads the shown incidents (with sources) as `france-incidents-N-of-151.csv`, generated in the browser.
+- **Incident list** at the bottom of the panel is the shown incidents as text, newest first, each with its source and a Show on map button. **Print** prints the summary, disclaimer, timeline, top cities and this list, with the link it was printed from; the map is left out.
+## Accessibility
+
+- A "Skip to map" link is the first thing Tab reaches. All controls show a visible focus outline.
+- Every control has an accessible name: filters, search and dates use labels; the theme, timeline and Top cities buttons have `aria-label`; pins use their `title` (city, type, severity). Cluster circles carry visually hidden text with the count, city and most severe incident, and the same as a tooltip.
+- The map is the `main` landmark and the sidebar is labelled. With the map focused, arrow keys pan and `+`/`-` zoom; Tab moves between pins and clusters, Enter opens a popup or fans out a cluster.
+- The incident count, copy-link and export results are announced politely; an invalid date range is announced as an alert.
+- The incident list gives every shown incident as text with its source, and the print view uses it.
+- Severity colours are always paired with text labels. Animations are reduced when the system asks for reduced motion.
 
 The theme uses CSS `light-dark()`, which needs Chrome 123+, Safari 17.5+ or Firefox 120+. The Dark map button switches the UI and basemap between light and dark. It follows the system setting until you choose, then remembers the choice in `localStorage`. The dark basemap is the OSM tiles with a CSS invert filter. CARTO Dark Matter now needs an API key.
 
@@ -37,7 +54,7 @@ docker build -t france-protests-map .
 docker run --rm -e PORT=8080 -p 8080:8080 france-protests-map
 ```
 
-To check the running site (needs Playwright): `NODE_PATH=/path/to/node_modules node tools/check.js http://localhost:8080/`.
+To check the running site (needs Playwright): `NODE_PATH=/path/to/node_modules node tools/check.js http://localhost:8080/`. It covers loading, layout shift, every filter, the URL hash, search, timeline, severity mix, list, CSV export, copy link, print view, keyboard use, clusters and spiderfy, on desktop and phone viewports. Where OpenStreetMap tiles are unreachable (sandboxes, offline) it prints a NOTE with the count of failed tile requests instead of failing. Lighthouse results are in `docs/lighthouse.md`.
 
 ## Serving
 

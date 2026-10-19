@@ -1,3 +1,6 @@
 node_modules
 .DS_Store
-shots/
+*.png
+# Screenshots for PRs are committed as JPEG under shots/; anything else there stays local.
+shots/*
+!shots/*.jpg
