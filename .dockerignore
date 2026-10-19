@@ -8,3 +8,7 @@ REVIEW.md
 screenshot.png
 node_modules
 .DS_Store
+shots
+docs
+tools
+*.png
