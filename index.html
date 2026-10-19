@@ -4,14 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>France unrest, Sept–Oct 2026: incidents named by news outlets</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<meta name="description" content="Map of 151 looting, vandalism, arson and protest incidents named by news outlets during the Sept–Oct 2026 unrest in France, with sources and filters.">
+<meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16181d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://tile.openstreetmap.org">
+<link rel="preload" href="data/incidents.json" as="fetch" crossorigin>
+<link rel="preload" href="vendor/markercluster-1.5.3/leaflet.markercluster.js" as="script">
+<link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
+<link rel="stylesheet" href="vendor/markercluster-1.5.3/MarkerCluster.css">
 <link rel="stylesheet" href="style.css">
+<script src="vendor/leaflet-1.9.4/leaflet.js" defer></script>
+<script src="app.js" defer></script>
 </head>
 <body>
-<aside id="sidebar">
-  <button id="toggle" type="button" aria-expanded="true" aria-controls="panel">Hide panel</button>
-  <div id="panel">
+<aside id="sidebar" aria-label="Incident summary and filters">
+  <header id="head">
     <h1>France unrest, Sept–Oct 2026: incidents named by news outlets</h1>
+    <div class="bar">
+      <p id="count" aria-live="polite">Loading incidents…</p>
+      <button id="theme" type="button" aria-pressed="false" title="Switch light/dark map">Dark map</button>
+      <button id="toggle" type="button" aria-expanded="true" aria-controls="panel"><span class="if-open">Hide panel</span><span class="if-closed">Show panel</span></button>
+    </div>
+  </header>
+  <div id="panel">
     <ul class="summary">
       <li>The movement began as a high-school (lycéen) protest at Lycée Saint-Exupéry in Créteil on 17–18 Sept over teacher shortages and Parcoursup, and went national from 28 Sept.
         (<a href="https://www.theguardian.com/world/2026/oct/17/protests-france-high-prices-social-security-gilets-jaunes" target="_blank" rel="noopener">Guardian</a>,
@@ -32,20 +48,39 @@
 
     <section id="filters">
       <h2>Filters</h2>
-      <fieldset><legend>Severity</legend><div id="f-sev"></div></fieldset>
-      <fieldset><legend>Type</legend><div id="f-type"></div></fieldset>
-      <label>City <select id="f-city"></select></label>
+      <fieldset id="f-sev"><legend>Severity</legend>
+        <label><input type="checkbox" value="0" checked> <span class="sw sev-0"></span>0 Gathering</label>
+        <label><input type="checkbox" value="1" checked> <span class="sw sev-1"></span>1 Vandalism</label>
+        <label><input type="checkbox" value="2" checked> <span class="sw sev-2"></span>2 Break-in</label>
+        <label><input type="checkbox" value="3" checked> <span class="sw sev-3"></span>3 Looted</label>
+        <label><input type="checkbox" value="4" checked> <span class="sw sev-4"></span>4 Partially burned</label>
+        <label><input type="checkbox" value="5" checked> <span class="sw sev-5"></span>5 Destroyed</label>
+      </fieldset>
+      <fieldset id="f-type"><legend>Type</legend>
+        <label><input type="checkbox" value="looting" checked> Looting</label>
+        <label><input type="checkbox" value="vandalism" checked> Vandalism</label>
+        <label><input type="checkbox" value="break_in" checked> Break-in</label>
+        <label><input type="checkbox" value="fire_business" checked> Fire (business)</label>
+        <label><input type="checkbox" value="fire_vehicle" checked> Fire (vehicle)</label>
+        <label><input type="checkbox" value="protest_gathering" checked> Protest gathering</label>
+        <label><input type="checkbox" value="fire_building" checked> Fire (building)</label>
+      </fieldset>
+      <label class="field">City <select id="f-city"><option value="">All cities</option></select></label>
       <div class="dates">
-        <label>From <input type="date" id="f-from"></label>
-        <label>To <input type="date" id="f-to"></label>
+        <label class="field">From <input type="date" id="f-from"></label>
+        <label class="field">To <input type="date" id="f-to"></label>
       </div>
+      <p id="date-warn" role="alert" hidden></p>
       <button id="reset" type="button">Reset filters</button>
-      <p id="count" aria-live="polite"></p>
+    </section>
+
+    <section id="top">
+      <h2>Top cities</h2>
+      <p class="hint">By incidents matching the other filters; bar shows severity mix. Select a city to filter.</p>
+      <ol id="top-list"></ol>
     </section>
   </div>
 </aside>
 <div id="map"></div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="app.js"></script>
 </body>
 </html>
