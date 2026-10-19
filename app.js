@@ -23,7 +23,8 @@ let theme;
 function setTheme(t, save) {
   theme = t;
   document.documentElement.dataset.theme = t;
-  $('theme')?.setAttribute('aria-pressed', String(t === 'dark'));
+  const tb = $('theme');
+  if (tb) { tb.textContent = t === 'dark' ? 'Light map' : 'Dark map'; tb.setAttribute('aria-label', t === 'dark' ? 'Switch to light map' : 'Switch to dark map'); }
   if (save) try { localStorage.setItem('fpm-theme', t); } catch {}
 }
 const saved = (() => { try { return localStorage.getItem('fpm-theme'); } catch { return null; } })();

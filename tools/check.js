@@ -88,7 +88,7 @@ async function run(name, viewport) {
   await page.click('#theme');
   ok(await page.getAttribute('html', 'data-theme') === 'dark' && (await bg()) !== before, 'theme toggle switches to dark');
   ok(await page.evaluate(() => getComputedStyle(document.querySelector('.leaflet-tile-pane')).filter.includes('invert')), 'dark basemap filter applied');
-  ok(await page.getAttribute('#theme', 'aria-pressed') === 'true', 'theme aria-pressed=true');
+  ok(await page.textContent('#theme') === 'Light map', 'theme button reads Light map while dark');
 
   if (mobile) {
     await page.click('#toggle');
