@@ -6,7 +6,7 @@ A static map of 151 incidents (looting, vandalism, arson, break-ins, gatherings)
 
 Pins are coloured by severity (0 gathering, 1 vandalism, 2 break-in, 3 looted, 4 partially burned, 5 destroyed). Hollow dashed pins are placed at a city centre only. Nearby pins are grouped into numbered clusters coloured by their most severe incident; select one to zoom in, and pins at the same spot spread out (spiderfy). Filter by severity, type, city and date, or pick a city in the Top cities list.
 
-The Dark map button switches the UI and basemap between light and dark. It follows the system setting until you choose, then remembers the choice in `localStorage`. The dark basemap is the OSM tiles with a CSS invert filter. CARTO Dark Matter now needs an API key.
+The theme uses CSS `light-dark()`, which needs Chrome 123+, Safari 17.5+ or Firefox 120+. The Dark map button switches the UI and basemap between light and dark. It follows the system setting until you choose, then remembers the choice in `localStorage`. The dark basemap is the OSM tiles with a CSS invert filter. CARTO Dark Matter now needs an API key.
 
 ## Data
 
@@ -45,7 +45,7 @@ The Caddyfile compresses responses with zstd or gzip and sets these headers:
 
 - A Content-Security-Policy that allows only same-origin scripts, styles and data, plus images from `tile.openstreetmap.org`. The page has no inline scripts.
 - `nosniff`, `Referrer-Policy` and a minimal `Permissions-Policy`.
-- Cache-Control: `vendor/*` is immutable for a year, because each directory name holds the library version. `style.css`, `app.js` and `favicon.svg` cache for 5 minutes. `index.html` and `data/*` use `no-cache`, so the browser revalidates them with the ETag.
+- Cache-Control: `vendor/*`, `app.js` and `style.css` are immutable for a year. Each vendor directory name holds the library version, and `index.html` loads `app.js?v=N` and `style.css?v=N`. **Bump `?v=` in `index.html` whenever you change `app.js` or `style.css`.** `favicon.svg` caches for 5 minutes. `index.html` and `data/*` use `no-cache`, so the browser revalidates them with the ETag.
 
 The Docker base image is pinned by digest.
 

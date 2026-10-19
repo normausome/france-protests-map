@@ -23,11 +23,12 @@ let theme;
 function setTheme(t, save) {
   theme = t;
   document.documentElement.dataset.theme = t;
-  $('theme').setAttribute('aria-pressed', String(t === 'dark'));
-  if (save) localStorage.setItem('fpm-theme', t);
+  $('theme')?.setAttribute('aria-pressed', String(t === 'dark'));
+  if (save) try { localStorage.setItem('fpm-theme', t); } catch {}
 }
-setTheme(localStorage.getItem('fpm-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-$('theme').addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark', true));
+const saved = (() => { try { return localStorage.getItem('fpm-theme'); } catch { return null; } })();
+setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+$('theme')?.addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark', true));
 
 const legend = L.control({ position: 'bottomright' });
 legend.onAdd = () => {
@@ -94,8 +95,9 @@ const matches = (d, ignoreCity) => state.sev.has(d.severity) && state.types.has(
 
 function render() {
   const bad = !datesOk();
-  $('date-warn').hidden = !bad;
-  $('date-warn').textContent = bad ? `"From" (${state.from}) is after "To" (${state.to}), so no incidents match. Change either date or reset filters.` : '';
+  const warn = $('date-warn') || {};
+  warn.hidden = !bad;
+  warn.textContent = bad ? `"From" (${state.from}) is after "To" (${state.to}), so no incidents match. Change either date or reset filters.` : '';
   for (const id of ['f-from', 'f-to']) $(id).setAttribute('aria-invalid', String(bad));
 
   const shown = incidents.filter((d) => matches(d));
@@ -106,6 +108,7 @@ function render() {
 }
 
 function renderTop() {
+  if (!$('top-list')) return;
   const by = new Map();
   incidents.forEach((d) => {
     if (!matches(d, true)) return;
