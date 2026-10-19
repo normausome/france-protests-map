@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>France unrest, Sept–Oct 2026: incidents named by news outlets</title>
-<meta name="description" content="Map of 151 looting, vandalism, arson and protest incidents named by news outlets during the Sept–Oct 2026 unrest in France, with sources and filters.">
+<meta name="description" content="Map of 151 looting, vandalism, arson and protest incidents named by news outlets during the Sept–Oct 2026 unrest in France, with sources, filters, search, timeline and CSV export.">
 <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#16181d" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -13,11 +13,12 @@
 <link rel="preload" href="vendor/markercluster-1.5.3/leaflet.markercluster.js" as="script">
 <link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
 <link rel="stylesheet" href="vendor/markercluster-1.5.3/MarkerCluster.css">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <script src="vendor/leaflet-1.9.4/leaflet.js" defer></script>
-<script src="app.js?v=3" defer></script>
+<script src="app.js?v=4" defer></script>
 </head>
 <body>
+<a id="skip" class="skip" href="#map">Skip to map</a>
 <aside id="sidebar" aria-label="Incident summary and filters">
   <header id="head">
     <h1>France unrest, Sept–Oct 2026: incidents named by news outlets</h1>
@@ -45,9 +46,18 @@
     </ul>
     <p class="disclaimer"><strong>Read this first:</strong> only incidents named by news outlets are mapped, not the full ~2,000–3,000 businesses hit. Data as of Oct 19, 2026. No private individuals are named. Locations are geocoded approximations.</p>
     <p class="updated">Last updated: 19 Oct 2026, ~10:00 AM ET (16:00 Paris)</p>
+    <p id="print-note" class="print-only"></p>
 
-    <section id="filters">
-      <h2>Filters</h2>
+    <section id="mix-sec" aria-labelledby="mix-h">
+      <h2 id="mix-h">Shown incidents by severity</h2>
+      <div id="mix-bar" class="stack" aria-hidden="true"></div>
+      <ul id="mix"></ul>
+    </section>
+
+    <section id="filters" aria-labelledby="filters-h">
+      <h2 id="filters-h">Filters</h2>
+      <label class="field">Search <input type="search" id="f-q" placeholder="City, street, business, description" autocomplete="off" aria-describedby="q-hint" maxlength="100"></label>
+      <p id="q-hint" class="hint">Matches city, street, business, type and description. Accents and case are ignored.</p>
       <fieldset id="f-sev"><legend>Severity</legend>
         <label><input type="checkbox" value="0" checked> <span class="sw sev-0"></span>0 Gathering</label>
         <label><input type="checkbox" value="1" checked> <span class="sw sev-1"></span>1 Vandalism</label>
@@ -66,21 +76,37 @@
         <label><input type="checkbox" value="fire_building" checked> Fire (building)</label>
       </fieldset>
       <label class="field">City <select id="f-city"><option value="">All cities</option></select></label>
+      <h3 class="sub" id="tl-h">Timeline</h3>
+      <p class="hint">Incidents per day that match the other filters. Select a day to show only that day; select it again for all days.</p>
+      <ol id="timeline" aria-labelledby="tl-h"></ol>
       <div class="dates">
         <label class="field">From <input type="date" id="f-from"></label>
         <label class="field">To <input type="date" id="f-to"></label>
       </div>
       <p id="date-warn" role="alert" hidden></p>
-      <button id="reset" type="button">Reset filters</button>
+      <div class="actions">
+        <button id="reset" type="button">Reset filters</button>
+        <button id="copy" type="button" title="Copy a link that opens the map with these filters and this view">Copy link</button>
+        <button id="export" type="button" title="Download the shown incidents, with sources, as a CSV file">Export CSV</button>
+        <button id="print" type="button" title="Print the summary and the list of shown incidents">Print</button>
+      </div>
+      <p id="status" class="hint" aria-live="polite"></p>
+      <input id="share" type="url" readonly hidden aria-label="Shareable link">
     </section>
 
-    <section id="top">
-      <h2>Top cities</h2>
+    <section id="top" aria-labelledby="top-h">
+      <h2 id="top-h">Top cities</h2>
       <p class="hint">By incidents matching the other filters; bar shows severity mix. Select a city to filter.</p>
       <ol id="top-list"></ol>
     </section>
+
+    <details id="list-sec">
+      <summary><h2>Incident list <span id="list-n"></span></h2></summary>
+      <p class="hint">The shown incidents as text, newest first, each with its source. This is what the Print button prints.</p>
+      <ol id="list"></ol>
+    </details>
   </div>
 </aside>
-<div id="map"></div>
+<main id="map" aria-label="Incident map. Arrow keys pan, plus and minus zoom, Tab moves between pins and clusters, Enter opens a pin or fans out a cluster."></main>
 </body>
 </html>
