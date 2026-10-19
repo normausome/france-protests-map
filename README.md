@@ -2,7 +2,7 @@
 
 Built by Claude Code (Claude CLI, Sonnet). Performance and visual pass by Claude Code (Claude CLI, Opus). Round 3 (search, timeline, shareable links, list, export, print, accessibility) by Claude Code (cloud session, Fable).
 
-A static map of 151 incidents (looting, vandalism, arson, break-ins, gatherings) that news outlets named or located during the Sept–Oct 2026 unrest in France. Plain HTML, CSS and vanilla JS with Leaflet 1.9.4, Leaflet.markercluster 1.5.3 and OpenStreetMap tiles. No build step, no API keys.
+A static map of 166 incidents (looting, vandalism, arson, break-ins, gatherings) that news outlets named or located during the Sept–Oct 2026 unrest in France. Plain HTML, CSS and vanilla JS with Leaflet 1.9.4, Leaflet.markercluster 1.5.3 and OpenStreetMap tiles. No build step, no API keys.
 
 Pins are coloured by severity (0 gathering, 1 vandalism, 2 break-in, 3 looted, 4 partially burned, 5 destroyed). Hollow dashed pins are placed at a city centre only. Nearby pins are grouped into numbered clusters coloured by their most severe incident, with a tooltip giving the city and severity counts. Selecting a cluster zooms in; pins that would not separate before street level (zoom 16) fan out there in one click (spiderfy), also with Enter on a focused cluster. Filter by severity, type, city, date and free text (accents ignored), or pick a city in the Top cities list or a day in the Timeline.
 
@@ -12,7 +12,7 @@ Pins are coloured by severity (0 gathering, 1 vandalism, 2 break-in, 3 looted, 4
 - **Timeline** shows incidents per day (stacked by severity) that match the other filters. Select a day to show only that day.
 - **Shown incidents by severity** summarises the current selection.
 - **Shareable links.** Filters and, once you move the map, the view live in the URL hash: `#city=Paris&sev=3,4,5&type=looting&from=2026-10-17&to=2026-10-17&q=pharmacie&map=48.8675,2.3640,16`. Only non-default parts are written. Copy link puts the current link on the clipboard; unknown values are ignored.
-- **Export CSV** downloads the shown incidents (with sources) as `france-incidents-N-of-151.csv`, generated in the browser.
+- **Export CSV** downloads the shown incidents (with sources) as `france-incidents-N-of-166.csv`, generated in the browser.
 - **Incident list** at the bottom of the panel is the shown incidents as text, newest first, each with its source and a Show on map button. **Print** prints the summary, disclaimer, timeline, top cities and this list, with the link it was printed from; the map is left out.
 ## Accessibility
 
@@ -36,7 +36,7 @@ The theme uses CSS `light-dark()`, which needs Chrome 123+, Safari 17.5+ or Fire
 - Only incidents named by outlets are mapped, not the roughly 2,000–3,000 businesses hit.
 - Data is as of 19 Oct 2026, about 10:00 AM ET (16:00 Paris).
 - No private individuals are named.
-- Locations are geocoded approximations; 36 incidents are pinned to the city centre only.
+- Locations are geocoded approximations; 41 incidents are pinned to the city centre only.
 - Some incidents are attempted break-ins. Severity for some rows is uncertain.
 
 ## Run locally

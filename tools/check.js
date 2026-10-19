@@ -37,7 +37,7 @@ async function run(name, viewport) {
   };
   const hash = () => page.evaluate(() => location.hash);
   const settle = (ms = 300) => page.waitForTimeout(ms);
-  await expectCount(/^Showing 151 of 151/, 'all incidents loaded');
+  await expectCount(/^Showing 166 of 166/, 'all incidents loaded');
   const mobile = viewport.width <= 700;
   await page.waitForTimeout(1500);
   const cls = await page.evaluate(() => window.__cls);
@@ -46,7 +46,7 @@ async function run(name, viewport) {
   const total = cls.reduce((a, e) => a + e.v, 0);
   ok(total < 0.01, `no layout shift on load (CLS ${total.toFixed(3)}${cls.length ? `: ${cls.map((e) => `${e.v.toFixed(3)} ${e.src}`).join('; ')}` : ''})`);
   const once = await page.evaluate(() => ['.disclaimer', '.updated', '.summary', '#filters'].map((q) => document.querySelectorAll(q).length));
-  ok(once.every((n) => n === 1) && await page.locator('.summary li').count() === 4, `header content present once (${once})`);
+  ok(once.every((n) => n === 1) && await page.locator('.summary li').count() === 7, `header content present once (${once})`);
   ok((await page.locator('.summary li >> nth=2').textContent()).replace(/\s+/g, ' ').includes('(RTL, RFI, BFMTV/AFP)'), 'RTL, RFI, BFMTV/AFP order kept');
   ok((await hash()) === '', 'default filters leave the URL hash empty');
 
@@ -74,79 +74,79 @@ async function run(name, viewport) {
   }
 
   await page.selectOption('#f-city', 'Paris');
-  await expectCount(/^Showing 37 of 151/, 'city filter Paris');
+  await expectCount(/^Showing 45 of 166/, 'city filter Paris');
   await settle();
   ok((await hash()) === '#city=Paris', `URL hash follows the city filter (${await hash()})`);
   await page.click('#reset');
   await page.uncheck('#f-sev input[value="0"]');
-  await expectCount(/^Showing (?!151 )\d+ of 151/, 'severity filter changes count');
+  await expectCount(/^Showing (?!166 )\d+ of 166/, 'severity filter changes count');
   await settle();
   ok((await hash()) === '#sev=1,2,3,4,5', `URL hash lists the kept severities (${await hash()})`);
   await page.click('#reset');
   await page.uncheck('#f-type input[value="looting"]');
-  await expectCount(/^Showing (?!151 )\d+ of 151/, 'type filter changes count');
+  await expectCount(/^Showing (?!166 )\d+ of 166/, 'type filter changes count');
   await page.click('#reset');
   await page.fill('#f-from', '2026-10-18');
   await page.dispatchEvent('#f-from', 'change');
-  await expectCount(/^Showing (?!151 )\d+ of 151/, 'date From changes count');
+  await expectCount(/^Showing (?!166 )\d+ of 166/, 'date From changes count');
   await page.fill('#f-to', '2026-10-05');
   await page.dispatchEvent('#f-to', 'change');
-  await expectCount(/^Showing 0 of 151/, 'From > To shows 0');
+  await expectCount(/^Showing 0 of 166/, 'From > To shows 0');
   ok(await page.locator('#date-warn[role=alert]').isVisible(), 'From > To warning visible');
   ok(await page.getAttribute('#f-from', 'aria-invalid') === 'true', 'date inputs marked invalid');
   await page.click('#top-list button >> nth=0').catch(() => {});
   await page.click('#reset');
-  await expectCount(/^Showing 151 of 151/, 'reset back to 151');
+  await expectCount(/^Showing 166 of 166/, 'reset back to 166');
   ok(await page.locator('#date-warn').isHidden(), 'warning cleared after reset');
   await settle();
   ok((await hash()) === '', 'reset clears the URL hash');
   await page.click('#top-list button >> nth=0');
-  await expectCount(/^Showing 37 of 151/, 'top-cities click sets city filter (Paris)');
+  await expectCount(/^Showing 45 of 166/, 'top-cities click sets city filter (Paris)');
   ok(await page.inputValue('#f-city') === 'Paris', 'city select follows top-cities click');
   await page.click('#reset');
 
   // Severity mix of the shown incidents
   const mixSum = async () => (await page.locator('#mix strong').allTextContents()).reduce((a, s) => a + Number(s), 0);
-  ok(await page.locator('#mix li').count() === 6 && (await mixSum()) === 151, `severity mix lists 6 levels summing to 151 (${await mixSum()})`);
+  ok(await page.locator('#mix li').count() === 6 && (await mixSum()) === 166, `severity mix lists 6 levels summing to 166 (${await mixSum()})`);
   ok(await page.locator('#mix-bar span').count() === 6, 'severity mix bar has a segment per level');
   await page.selectOption('#f-city', 'Lille');
-  await expectCount(/^Showing 11 of 151/, 'city filter Lille');
+  await expectCount(/^Showing 11 of 166/, 'city filter Lille');
   ok((await mixSum()) === 11, `severity mix follows the filter (${await mixSum()})`);
   await page.click('#reset');
 
   // Timeline: one bar per day; a day is a toggle for from=to=day
   ok(await page.locator('#timeline button').count() === 5, `timeline has one bar per day (${await page.locator('#timeline button').count()})`);
   const day17 = page.locator('#timeline button', { hasText: '17 Oct' });
-  ok((await day17.locator('.n').textContent()) === '131', `timeline shows 131 for 17 Oct (${await day17.locator('.n').textContent()})`);
+  ok((await day17.locator('.n').textContent()) === '138', `timeline shows 138 for 17 Oct (${await day17.locator('.n').textContent()})`);
   ok((await day17.locator('.tbar').evaluate((e) => e.getBoundingClientRect().height)) > 20, 'timeline bar for 17 Oct is drawn');
   await day17.click();
-  await expectCount(/^Showing 131 of 151/, 'timeline day click shows only 17 Oct');
+  await expectCount(/^Showing 138 of 166/, 'timeline day click shows only 17 Oct');
   await settle();
   ok(await page.inputValue('#f-from') === '2026-10-17' && await page.inputValue('#f-to') === '2026-10-17', 'date inputs follow the timeline');
   ok(await page.locator('#timeline button[aria-pressed=true]').count() === 1, 'timeline marks the selected day');
   ok((await hash()) === '#from=2026-10-17&to=2026-10-17', `URL hash carries the day (${await hash()})`);
   await page.locator('#timeline button[aria-pressed=true]').click();
-  await expectCount(/^Showing 151 of 151/, 'timeline day click again shows all days');
+  await expectCount(/^Showing 166 of 166/, 'timeline day click again shows all days');
   await page.selectOption('#f-city', 'Lille');
-  await expectCount(/^Showing 11 of 151/, 'city filter Lille again');
+  await expectCount(/^Showing 11 of 166/, 'city filter Lille again');
   ok((await day17.locator('.n').textContent()) === '11', 'timeline counts follow the other filters');
   await page.click('#reset');
 
   // Search
   await page.fill('#f-q', 'louvre');
-  await expectCount(/^Showing 1 of 151/, 'search "louvre" finds the Louvre blockade');
+  await expectCount(/^Showing 1 of 166/, 'search "louvre" finds the Louvre blockade');
   await settle();
   ok((await hash()) === '#q=louvre', `URL hash carries the search (${await hash()})`);
   await page.fill('#f-q', 'Republique');
-  await expectCount(/^Showing (?!0 )(?!151 )\d+ of 151/, 'search ignores accents (Republique finds République)');
+  await expectCount(/^Showing (?!0 )(?!166 )\d+ of 166/, 'search ignores accents (Republique finds République)');
   await page.fill('#f-q', 'zzzz-no-such-thing');
-  await expectCount(/^Showing 0 of 151/, 'search with no match shows 0');
+  await expectCount(/^Showing 0 of 166/, 'search with no match shows 0');
   await page.fill('#f-q', '');
-  await expectCount(/^Showing 151 of 151/, 'clearing search shows all');
+  await expectCount(/^Showing 166 of 166/, 'clearing search shows all');
 
   // Copy link, CSV export
   await page.selectOption('#f-city', 'Lille');
-  await expectCount(/^Showing 11 of 151/, 'Lille for export');
+  await expectCount(/^Showing 11 of 166/, 'Lille for export');
   await page.click('#copy');
   await page.waitForTimeout(600);
   const clip = await page.evaluate(() => navigator.clipboard.readText().catch(() => ''));
@@ -154,7 +154,7 @@ async function run(name, viewport) {
   const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 5000 }).catch(() => null), page.click('#export')]);
   const csv = dl ? fs.readFileSync(await dl.path(), 'utf8') : '';
   const lines = csv.split('\r\n').filter(Boolean);
-  ok(dl && dl.suggestedFilename() === 'france-incidents-11-of-151.csv' && lines.length === 12 && lines[0].startsWith('﻿id,date,time,city') && lines[1].includes('https://'), `CSV export has a header, 11 rows and sources (${dl ? dl.suggestedFilename() : 'no download'}, ${lines.length} lines)`);
+  ok(dl && dl.suggestedFilename() === 'france-incidents-11-of-166.csv' && lines.length === 12 && lines[0].startsWith('﻿id,date,time,city') && lines[1].includes('https://'), `CSV export has a header, 11 rows and sources (${dl ? dl.suggestedFilename() : 'no download'}, ${lines.length} lines)`);
   ok(/^Exported 11/.test(await page.textContent('#status')), 'export reports the row count');
 
   // Incident list and print view
@@ -185,7 +185,7 @@ async function run(name, viewport) {
   ok(await page.locator('#list .item').count() === 0, 'list closes again after printing');
   // Fresh load: "Show on map" left the view zoomed in, and the cluster checks below want the whole country.
   await page.goto(URL);
-  await expectCount(/^Showing 151 of 151/, 'reload for theme and cluster checks');
+  await expectCount(/^Showing 166 of 166/, 'reload for theme and cluster checks');
   if (mobile) await page.click('#toggle');
 
   const bg = () => page.evaluate(() => getComputedStyle(document.querySelector('#sidebar')).backgroundColor);
@@ -222,32 +222,32 @@ async function run(name, viewport) {
 
   // Shareable URL: filters and view come from the hash, and the hash reacts to changes.
   await page.goto(`${URL}#city=Lille&sev=3,4,5&type=looting,fire_business&from=2026-10-17`);
-  await expectCount(/^Showing (?!0 )(?!151 )\d+ of 151/, 'hash filters apply on load');
+  await expectCount(/^Showing (?!0 )(?!166 )\d+ of 166/, 'hash filters apply on load');
   const applied = await page.evaluate(() => ({ city: document.querySelector('#f-city').value, sev0: document.querySelector('#f-sev input[value="0"]').checked, sev3: document.querySelector('#f-sev input[value="3"]').checked, vand: document.querySelector('#f-type input[value="vandalism"]').checked, from: document.querySelector('#f-from').value }));
   ok(applied.city === 'Lille' && !applied.sev0 && applied.sev3 && !applied.vand && applied.from === '2026-10-17', `controls mirror the hash (${JSON.stringify(applied)})`);
   await page.evaluate(() => { location.hash = '#city=Paris'; });
-  await expectCount(/^Showing 37 of 151/, 'hashchange re-applies filters');
+  await expectCount(/^Showing 45 of 166/, 'hashchange re-applies filters');
   await page.goto(`${URL}#city=Nowhere&sev=9&from=bad`);
-  await expectCount(/^Showing 151 of 151/, 'unknown hash values are ignored');
+  await expectCount(/^Showing 166 of 166/, 'unknown hash values are ignored');
 
   // Clusters: pins that share one spot fan out at street level instead of zooming to the max first.
   await page.goto(`${URL}#map=48.8675,2.3640,13`);
-  await expectCount(/^Showing 151 of 151/, 'hash map view loads');
+  await expectCount(/^Showing 166 of 166/, 'hash map view loads');
   ok(await page.evaluate(() => map.getZoom()) === 13, 'hash map view sets the zoom');
   const tight = page.locator('.cluster', { hasText: /^1[0-9] incidents/ }).first();
-  ok(await tight.count() === 1, 'République cluster (12 co-located pins plus neighbours) visible at zoom 13');
+  ok(await tight.count() === 1, 'République cluster (13 co-located pins plus neighbours) visible at zoom 13');
   await settle(500);
   await tight.click();
   await page.waitForTimeout(1800);
   const fan = await page.evaluate(() => ({ zoom: map.getZoom(), legs: document.querySelectorAll('path.spider-leg').length, hash: location.hash }));
-  ok(fan.zoom === 16 && fan.legs >= 12, `one click fans out ${fan.legs} pins at street level (zoom ${fan.zoom}, not 18)`);
+  ok(fan.zoom === 16 && fan.legs >= 13, `one click fans out ${fan.legs} pins at street level (zoom ${fan.zoom}, not 18)`);
   ok(/^#map=48\.\d+,2\.\d+,16$/.test(fan.hash), `hash follows the map view (${fan.hash})`);
   await page.goto(`${URL}#map=48.8675,2.3640,16`);
-  await expectCount(/^Showing 151 of 151/, 'reload at zoom 16');
+  await expectCount(/^Showing 166 of 166/, 'reload at zoom 16');
   await page.locator('.cluster', { hasText: /^1[0-9] incidents/ }).first().focus();
   await page.keyboard.press('Enter');
   await page.waitForTimeout(800);
-  ok(await page.locator('path.spider-leg').count() >= 12 && await page.evaluate(() => map.getZoom()) === 16, 'Enter on a focused cluster fans it out in place');
+  ok(await page.locator('path.spider-leg').count() >= 13 && await page.evaluate(() => map.getZoom()) === 16, 'Enter on a focused cluster fans it out in place');
   ok(await page.evaluate(() => { const leg = document.querySelector('path.spider-leg'); return leg && getComputedStyle(leg).stroke !== 'rgb(51, 136, 255)'; }), 'spider legs take the theme colour');
   await page.keyboard.press('Escape');
   await page.locator('.pin:visible').first().focus();

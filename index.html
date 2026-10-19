@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>France unrest, Sept–Oct 2026: incidents named by news outlets</title>
-<meta name="description" content="Map of 151 looting, vandalism, arson and protest incidents named by news outlets during the Sept–Oct 2026 unrest in France, with sources, filters, search, timeline and CSV export.">
+<meta name="description" content="Map of 166 looting, vandalism, arson and protest incidents named by news outlets during the Sept–Oct 2026 unrest in France, with sources, filters, search, timeline and CSV export.">
 <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#16181d" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="vendor/markercluster-1.5.3/MarkerCluster.css">
 <link rel="stylesheet" href="style.css?v=3">
 <script src="vendor/leaflet-1.9.4/leaflet.js" defer></script>
-<script src="app.js?v=4" defer></script>
+<script src="app.js?v=5" defer></script>
 </head>
 <body>
 <a id="skip" class="skip" href="#map">Skip to map</a>
@@ -36,16 +36,23 @@
       <li>On the national day of action, Sat 17 Oct, about 550,000 marched per the Interior Ministry (110,000 in Paris); the CGT says 800,000.
         (<a href="https://www.theguardian.com/world/2026/oct/17/protests-france-high-prices-social-security-gilets-jaunes" target="_blank" rel="noopener">Guardian</a>,
         <a href="https://www.bbc.com/news/articles/c574pdzl0k4no" target="_blank" rel="noopener">BBC</a>)</li>
-      <li>The Interior Ministry counted 2,397 interpellations on 17 Oct and 997 police and gendarmes injured, 7 seriously.
+      <li>Latest official national tally: the Interior Ministry counted 2,397 interpellations on 17 Oct and 997 police and gendarmes injured, 7 seriously.
         (<a href="https://www.rtl.fr/actu/justice-faits-divers/mobilisation-du-17-octobre-2-397-interpellations-dans-toute-la-france-7-membres-des-forces-de-l-ordre-grievement-blesses-7900686560" target="_blank" rel="noopener noreferrer">RTL</a>,
         <a href="https://www.rfi.fr/fr/en-bref/20261018-france-2397-interpellations-997-policiers-et-gendarmes-bless%C3%A9s-dont-7-graves" target="_blank" rel="noopener noreferrer">RFI</a>,
         <a href="https://www.bfmtv.com/police-justice/violences-du-7-octobre-le-ministere-de-l-interieur-recense-2-397-interpellations-997-policiers-et-gendarmes-blesses-dont-7-graves_AD-202610180350.html" target="_blank" rel="noopener noreferrer">BFMTV/AFP</a>)</li>
-      <li>About 3,000 businesses were looted or vandalised according to PM Lecornu; CCI France says about 2,000 were directly hit.
+      <li>Justice Minister Gérald Darmanin said on TF1 on 19 Oct that 2,513 people had been held in custody (gardes à vue) since Saturday and 67 jailed.
+        (<a href="https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php" target="_blank" rel="noopener noreferrer">Le Parisien live</a>)</li>
+      <li>About 3,000 businesses were looted or vandalised according to PM Lecornu; CCI France says about 2,000 were directly hit. Commerce Minister Serge Papin says "at least 3,000" were damaged or looted over the weekend.
         (<a href="https://www.nbcnews.com/world/europe/france-violence-riots-looting-paris-limoges-curfews-macron-protests-rcna604292" target="_blank" rel="noopener">NBC</a>,
-        <a href="https://www.bbc.com/news/live/c893v4gx2e47t" target="_blank" rel="noopener">BBC live</a>)</li>
+        <a href="https://www.bbc.com/news/live/c893v4gx2e47t" target="_blank" rel="noopener">BBC live</a>,
+        <a href="https://www.lefigaro.fr/actualite-france/en-direct-violences-manifestations-pillages-degats-paris-allocution-macron-17-octobre-emutes-20261019" target="_blank" rel="noopener noreferrer">Le Figaro live</a>)</li>
+      <li>First local curfews, Mon 19 Oct: Paris 23:00–06:00 around place de la République and the streets to Les Halles; Lyon hyper-centre and Presqu'île 21:00–06:00; Nice, minors in the city centre 21:00–06:00; Lille, Douai, Wattignies and Denain, unaccompanied minors 20:00–06:00.
+        (<a href="https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php" target="_blank" rel="noopener noreferrer">Le Parisien live</a>)</li>
+      <li>Next days of action: Thu 22 Oct, high-school students (the Coordination nationale lycéenne calls lycéens out on 22 and 24 Oct); Sat 24 Oct, gilets jaunes "Acte II"; 5 Nov, CGT day of strikes and demonstrations.
+        (<a href="https://www.lefigaro.fr/actualite-france/en-direct-violences-manifestations-pillages-degats-paris-allocution-macron-17-octobre-emutes-20261019" target="_blank" rel="noopener noreferrer">Le Figaro live</a>, <a href="https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php" target="_blank" rel="noopener noreferrer">Le Parisien live</a>)</li>
     </ul>
     <p class="disclaimer"><strong>Read this first:</strong> only incidents named by news outlets are mapped, not the full ~2,000–3,000 businesses hit. Data as of Oct 19, 2026. No private individuals are named. Locations are geocoded approximations.</p>
-    <p class="updated">Last updated: 19 Oct 2026, ~10:00 AM ET (16:00 Paris)</p>
+    <p class="updated">Last updated: 19 Oct 2026, ~4:30 PM ET (22:30 Paris)</p>
     <p id="print-note" class="print-only"></p>
 
     <section id="mix-sec" aria-labelledby="mix-h">
