@@ -1,5 +1,5 @@
 # France unrest, Sept–Oct 2026: context and official figures
-Compiled Mon 19 Oct 2026, about 4:30 PM ET (22:30 Paris). Figures move quickly, so each item below carries its source and date. Times are Paris time (CEST, UTC+2) unless marked otherwise.
+Updated Sat 24 Oct 2026, about 7:40 PM ET (Sun 25 Oct, 01:40 Paris); first compiled Mon 19 Oct 2026, about 4:30 PM ET (22:30 Paris). Figures move quickly, so each item below carries its source and date. Times are Paris time (CEST, UTC+2) unless marked otherwise.
 
 ## What the protests are about
 - **Origin: a high-school (lycéen) movement.** It started on 17–18 Sept 2026 at Lycée Saint-Exupéry in Créteil over teacher shortages, run-down schools and Parcoursup. It went national from 28 Sept. Sources: fr.wikipedia "Mouvement lycéen et étudiant de 2026 en France" (secondary source); Guardian, 17 Oct (https://www.theguardian.com/world/2026/oct/17/protests-france-high-prices-social-security-gilets-jaunes); BBC, 18 Oct (https://www.bbc.com/news/articles/c574pdzl0k4no).
@@ -19,10 +19,57 @@ Compiled Mon 19 Oct 2026, about 4:30 PM ET (22:30 Paris). Figures move quickly, 
   - Nice: minors in the city centre, 21:00–06:00 (mayor).
   - Lille, Douai, Wattignies and Denain: unaccompanied minors, 20:00–06:00 (prefect of the Nord defence zone).
   - Source: Le Parisien live, 19 Oct (https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php).
-- **Upcoming days of action:**
+- **Upcoming days of action (as announced on 19 Oct):**
   - Thu 22 Oct: high-school students. The Coordination nationale lycéenne calls lycéens out on 22 and 24 Oct. Source: Le Figaro live, 19 Oct (https://www.lefigaro.fr/actualite-france/en-direct-violences-manifestations-pillages-degats-paris-allocution-macron-17-octobre-emutes-20261019).
   - Sat 24 Oct: gilets jaunes "Acte II". Source: Le Parisien live, 19 Oct.
   - Thu 5 Nov: CGT day of strikes and demonstrations. Source: Le Parisien live, 19 Oct.
+
+## Update, 20–24 Oct
+### Sat 24 Oct, national day "contre la vie chère" (gilets jaunes "Acte II")
+- **Turnout:** 410,000 per the Interior Ministry (110,000 in Paris); 800,000 per the CGT (250,000 in Paris). Source: Ouest-France live, last updated 22:25 Paris (16:25 ET) (https://www.ouest-france.fr/societe/manifestation/direct-manifestations-les-corteges-se-sont-bien-passes-estime-laurent-nunez-qui-annonce-1-000-interpellations-5b125080-8251-4d40-8a5d-87fe322b743a).
+- **Arrests:** at about 19:00–19:37 Paris (13:00–13:37 ET), Interior Minister Laurent Nuñez gave "près d'un millier" (about 1,000) arrests and said the figure would probably rise. He compared it with 389 at the same hour on 17 Oct (Ouest-France); RTL and France 24/AFP give 385. He said "les cortèges se sont bien passés" and that no public buildings were attacked. Sources: France 24/AFP (https://www.france24.com/fr/info-en-continu/20261024-journ%C3%A9e-de-mobilisation-pour-le-pouvoir-d-achat-les-derniers-d%C3%A9veloppements); RTL live (https://www.rtl.fr/actu/politique/en-direct-mobilisation-du-24-octobre-70-000-policiers-et-gendarmes-des-manifestations-prevues-partout-en-france-pour-l-acte-2-du-mouvement-7900688880); Ouest-France live.
+- **Security deployment:** 70,000 police and gendarmes, about 20 Centaure armoured vehicles and about 15 water cannon (Nuñez, 23 Oct). Source: franceinfo (https://www.franceinfo.fr/societe/manifestations/blindes-unites-d-elite-70-000-policiers-et-gendarmes-laurent-nunez-detaille-l-important-dispositif-de-securite-mobilise-pour-les-manifestations-du-24-octobre_8250754.html).
+- **Local figures:**
+  - Paris: 65 arrests and more than 3,000 checks; dispersal complete shortly after 20:00 Paris (14:00 ET). Source: France 24/AFP.
+  - Marseille, 21:00 Paris (15:00 ET): 3 shops looted or damaged, 17,000 marchers, 51 arrests (30 of them minors), 20 gardes à vue. Source: prefecture, via RTL live.
+  - Nice: 61 arrests (11 of them ultra-right) and 2 police injured, per Nice Premium at 20:19 Paris (https://www.nicepremium.fr/actualites/manifestation-du-24-octobre-a-nice-61-interpellations-apres-des-affrontements-avec-des-militants-dultra-droite/). France 3's live gives 61 at 19:00 and reports 3 people injured in the fights.
+  - Doubs: 22 arrests (20 in Besançon) and 2 police injured; no damage to shops. Source: prefecture, via ToutMontbéliard (https://www.toutmontbeliard.com/2026/10/24/manifestations-du-24-octobre-2026-dans-le-doubs-4-000-personnes-a-besancon-et-50-a-montbeliard/).
+  - Hérault: 8 arrests and 2 police injured (provisional, about 20:30 Paris / 14:30 ET). Source: Hérault Tribune (https://echo-des-tribunes.com/herault-tribune/articles/huit-interpellations-deux-policiers-blesses-le-bilan-de-la-manifestation-a-montpellier).
+  - Nantes: 39 arrests, including 6 for looting a shop. Source: Préfet de Loire-Atlantique, via Ouest-France live.
+- **RATP:** 24 Paris metro stations closed. Source: Ouest-France live.
+
+### Aftermath of 17–18 Oct
+- **Interior, 23 Oct:** about 2,400 arrested on 17 Oct, plus about 500 more in the following days after investigations. 8 IGPN inquiries are open for 17–18 Oct, up from 6; the minister said the figure was still to be confirmed. Source: franceinfo (https://www.franceinfo.fr/societe/manifestations/blindes-unites-d-elite-70-000-policiers-et-gendarmes-laurent-nunez-detaille-l-important-dispositif-de-securite-mobilise-pour-les-manifestations-du-24-octobre_8250754.html).
+- **Justice, 20 Oct:** Justice Minister Gérald Darmanin cited 149 incarcerations (detention or committal) and more than 800 people déférés (brought before a magistrate). He told prosecutors-general to appeal disproportionate rulings. **PM Lecornu, same day:** "1.000 policiers et gendarmes blessés le week-end dernier". Source: TF1 Info live (https://www.tf1info.fr/societe/en-direct-manifestation-17-octobre-pillages-heurts-violences-urbaines-des-couvre-feux-partiels-instaures-laurent-nunez-promet-plus-de-policiers-2470892.html).
+- **Justice, 21 Oct, 12:34 Paris (06:34 ET):** Darmanin: "dont 174 incarcérations". Paris prosecutor: 557 gardes à vue in Paris, 300 already brought before a magistrate. Source: Morandini live, an aggregator quoting the minister's press statement (https://www.jeanmarcmorandini.com/article-655277-en-direct-chaos-les-rassemblements-et-manifestations-interdits-demain-de-8h-a-20h-dans-certains-secteurs-de-paris-les-couvre-feux-reconduits-ce-soir-dans-plusieurs-villes-de-france-dont-paris-et-lyon.html?amp).
+- **Unconfirmed, 23 Oct:** Le Monde's live headline reads "217 personnes incarcérées parmi les 2 700 placées en garde à vue … selon Gérald Darmanin". Only the headline could be read (the article was behind a paywall), so treat this as unconfirmed (https://www.lemonde.fr/societe/live/2026/10/23/en-direct-manifestations-du-17-octobre-217-personnes-ont-ete-incarcerees-parmi-les-2-700-placees-en-garde-a-vue-apres-les-violences-et-pillages-du-week-end-selon-gerald-darmanin_6795855_3224.html).
+- **Nice prosecutor, 21 Oct:** 114 arrests over the 17 Oct weekend, 110 of them held in custody. 22 comparutions immédiates on 19 Oct and 11 on 20 Oct. Four adults received immediate prison terms, including 6 months for two looters and 1 year for an attack on a police station. Source: France 3 (https://france3-regions.franceinfo.fr/provence-alpes-cote-d-azur/alpes-maritimes/nice/violences-du-17-octobre-que-signifie-la-politique-de-tres-grande-fermete-pronee-par-le-procureur-de-la-republique-de-nice-3437076.html).
+- **Toulouse prosecutor, 23 Oct:** 138 gardes à vue (95 adults, 43 minors), 46 prosecutions including 17 comparutions immédiates, and 7 immediate prison terms. Source: La Dépêche (https://www.ladepeche.fr/2026/10/23/toulouse-138-gardes-a-vue-apres-la-manifestation-du-17-octobre-sept-peines-de-prison-ferme-prononcees-pour-violences-et-pillages-13617344.php).
+- **Bobigny (Seine-Saint-Denis):** 20 minors were déférés after the looting of the SNIPES store in Saint-Denis on 18 Oct. Source: France 3 (https://france3-regions.franceinfo.fr/paris-ile-de-france/seine-saint-denis/c-est-un-depot-abominable-avocats-et-familles-alertent-sur-le-sort-des-mineurs-detenus-au-tribunal-judiciaire-de-bobigny-3436986.html).
+- **Businesses hit, national total:** no new official national count was found in the sources read on 24 Oct. Local figures: Lyon, 13 Oct (6 banks, 2 shops, 7 cameras); Marseille, 24 Oct (3 shops).
+- **Limoges town hall (burned 17 Oct):** the PM visited on 23 Oct. The state will rebuild it "à l'identique" and list it as a historic monument. Source: franceinfo live (https://www.franceinfo.fr/societe/mobilisation-du-17-octobre/direct-manifestations-du-24-octobre-emmanuel-macron-preside-un-conseil-de-defense-a-9-heures-avant-de-recevoir-les-lyceens-dans-l-apres-midi_8250124.html).
+- **Auvergne-Rhône-Alpes:** the Région is offering €15M for shop protection (50% of costs, capped at €5,000 per shop). Source: Passage Lyonnais (https://passagelyonnais.fr/manifestations-interdites-samedi-a-lyon-ce-que-disent-prefecture-elus-et-syndicats-2026-10-22/).
+
+### School-blockade movement, 2–16 Oct (the "missing days")
+- The 2–16 Oct rows added on 24 Oct are the serious located incidents from the school-blockade movement (fires at schools, mortar injuries, clashes with arrests), not every blockade or event.
+- **PM Lecornu, as quoted about 15 Oct:** since the lycée movement began, "937 policiers et gendarmes" injured, "149 personnels de l'Éducation nationale" and "248 élèves", plus 7,950 gardes à vue. Source: Ouest-France (https://www.ouest-france.fr/provence-alpes-cote-dazur/marseille-13000/un-policier-blesse-a-coups-de-marteau-en-marge-dune-manifestation-lyceenne-a-marseille-006cbc7c-c885-11f1-a1ba-1367ef44effb).
+- **IGPN:** an inquiry is open into the Lens grenade shot of 5 Oct (a 15-year-old lost a hand); the prosecutor calls the shot compliant. Source: franceinfo (https://www.franceinfo.fr/societe/education/blocage-des-lycees/le-tir-de-grenade-qui-a-mutile-un-lyceen-a-lens-juge-conforme-par-le-parquet_8230618.html).
+
+### Curfews and bans
+- **19–20 Oct:** the first curfews came on the evening of Mon 19 Oct in Lyon, Lille, Nice, Bordeaux and Paris. The PM announced more for Tue 20 "là où la situation le nécessite". Source: Le Dauphiné (https://www.ledauphine.com/social/2026/10/20/couvre-feu-interdiction-de-manifester-etat-d-urgence-quelles-differences).
+- **20 Oct:** Paris, curfew around place de la République and Les Halles, 23:00–06:00. Lyon, hyper-centre curfew 21:00–06:00 and a ban on gatherings 16:00–21:00. Marseille, curfew for minors 22:00–05:00 in parts of the centre and near shopping centres, also covering Aubagne and Plan-de-Campagne, from Tue 20 to Sat 05:00. Source: TF1 Info live.
+- **Rennes:** a prefectoral order bans gatherings 20:00–05:00 in shopping streets from 20 Oct. Source: France 3 (https://france3-regions.franceinfo.fr/bretagne/ille-et-vilaine/rennes/apres-le-17-octobre-on-continue-une-manifestation-interdite-s-est-tenue-dans-le-calme-ce-mardi-matin-a-rennes-3436362.html).
+- **21 Oct:** Lyon's curfew renewed again. Var: curfew for unaccompanied minors in parts of central Toulon on the evening of 24 Oct, and marches banned. Perpignan: protests banned in the hyper-centre 22–25 Oct; minors' curfew Sat 19:30 to Sun 06:00. Source: Morandini live.
+- **22 Oct, Paris:** a court suspended a ban and the police prefecture allowed only a static rally. Source: Sud Ouest (https://www.sudouest.fr/societe/greves-et-manifestations/mobilisation-sociale-et-violences-nouvelle-journee-de-manifestations-de-lyceens-et-etudiants-contre-la-repression-31190864.php).
+- **Nord:** minors' curfew 20:00–06:00 in parts of Lille (including much of the centre), Denain, Douai and Wattignies, extended to Marly and Valenciennes, from Fri 23 evening to Mon 26 Oct morning (prefectoral order of 23 Oct). **Orléans:** the mayor ordered a curfew for under-15s across the whole commune for the nights of 24–25 and 25–26 Oct, during the RN congress. Sources: RTL live; Ouest-France live.
+- **Nantes and Saint-Nazaire:** curfew orders published 23 Oct at 20:15 Paris (14:15 ET). Source: Ouest-France live.
+- **24 Oct bans:** Nice (08:00–24:00) and Bouches-du-Rhône (communes over 10,000). The Marseille administrative court partly suspended the Bouches-du-Rhône ban, allowing rallies in Gardanne, Istres, Martigues, Miramas and Tarascon. Source: RTL live.
+
+### Upcoming dates (as reported; check closer to the date)
+- **Mon 26 Oct, morning:** the Nord minors' curfew and the Orléans under-15 curfew end.
+- **Sat 31 Oct:** gilets jaunes call. Source: Ouest-France live, 24 Oct.
+- **Thu 5 Nov:** CGT day of strikes, which the CGT wants to make a general strike. Sources: Le Parisien live, 19 Oct (above); a 21 Oct secondary index (the primary article was not read).
+- **Not verified:** education measures on Mon 26 Oct and a Senate "casseurs-payeurs" bill debate on 27 Oct come only from earlier notes and are not confirmed.
 
 ## Main cities and regions with damage (17–18 Oct)
 - **Worst hit:** Paris (République, bd Magenta, Strasbourg-Saint-Denis, Capucines, Madeleine/Faubourg-Saint-Honoré, Les Halles), Marseille, Lyon, Limoges, Bordeaux, Lille.
@@ -68,14 +115,14 @@ Compiled Mon 19 Oct 2026, about 4:30 PM ET (22:30 Paris). Figures move quickly, 
 | Brest / Finistère | 31 police injured | search result (Ouest-France / Le Télégramme) |
 
 ## Notes and caveats
-- The dataset covers incidents named or located by sources. The true number of damaged businesses (about 2,000–3,000) is far larger than the 166 rows.
-- Some figures conflict as counts are updated. Use the latest consolidated figure (2,397 / 997) for national totals. The Justice Minister's 2,513 gardes à vue figure is his own statement, not the official tally.
+- The dataset covers incidents named or located by sources. The true number of damaged businesses (about 2,000–3,000) is far larger than the 237 rows. The 2–16 Oct rows are the serious located incidents from the school-blockade movement, not every event.
+- Some figures conflict as counts are updated. Use the consolidated figure (2,397 / 997) for 17 Oct national totals; the 24 Oct figure (about 1,000 arrests) was provisional when last read. The Justice Minister's 2,513 gardes à vue figure is his own statement, not the official tally.
 - Officials blame "ultra-left" groups for the violence. Mélenchon (LFI) has disputed this. These are political claims, not established facts.
 - **Data gaps:**
   - Le Parisien is paywalled.
   - Le Populaire was only partly readable.
   - The Ouest-France Angers article was truncated.
-  - 41 of the 166 incidents are geocoded only to the city centroid.
+  - 54 of the 237 incidents are geocoded only to the city centroid.
   - Some incidents are attempted break-ins rather than completed ones.
   - Severity for the La Barrique row is uncertain.
   - BFMTV's list of Paris shops hit on 18 Oct may mix in 17 Oct incidents, so only the appliance-store row was kept.
