@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>France unrest, Sept–Oct 2026: incidents named by news outlets</title>
-<meta name="description" content="Map of 166 looting, vandalism, arson and protest incidents named by news outlets during the Sept–Oct 2026 unrest in France, with sources, filters, search, timeline and CSV export.">
+<meta name="description" content="Map of 237 looting, vandalism, arson and protest incidents named by news outlets during the Sept–Oct 2026 unrest in France, with sources, filters, search, timeline and CSV export.">
 <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#16181d" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -13,9 +13,9 @@
 <link rel="preload" href="vendor/markercluster-1.5.3/leaflet.markercluster.js" as="script">
 <link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
 <link rel="stylesheet" href="vendor/markercluster-1.5.3/MarkerCluster.css">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 <script src="vendor/leaflet-1.9.4/leaflet.js" defer></script>
-<script src="app.js?v=5" defer></script>
+<script src="app.js?v=6" defer></script>
 </head>
 <body>
 <a id="skip" class="skip" href="#map">Skip to map</a>
@@ -30,29 +30,32 @@
   </header>
   <div id="panel">
     <ul class="summary">
-      <li>The movement began as a high-school (lycéen) protest at Lycée Saint-Exupéry in Créteil on 17–18 Sept over teacher shortages and Parcoursup, and went national from 28 Sept.
+      <li>The movement began as a high-school (lycéen) protest at Lycée Saint-Exupéry in Créteil on 17–18 Sept over teacher shortages and Parcoursup, and went national from 28 Sept. PM Lecornu said about 15 Oct that since it began 937 police and gendarmes, 149 Education staff and 248 pupils had been injured, with 7,950 gardes à vue.
         (<a href="https://www.theguardian.com/world/2026/oct/17/protests-france-high-prices-social-security-gilets-jaunes" target="_blank" rel="noopener">Guardian</a>,
-        <a href="https://www.bbc.com/news/articles/c574pdzl0k4no" target="_blank" rel="noopener">BBC</a>)</li>
+        <a href="https://www.bbc.com/news/articles/c574pdzl0k4no" target="_blank" rel="noopener">BBC</a>, <a href="https://www.ouest-france.fr/provence-alpes-cote-dazur/marseille-13000/un-policier-blesse-a-coups-de-marteau-en-marge-dune-manifestation-lyceenne-a-marseille-006cbc7c-c885-11f1-a1ba-1367ef44effb" target="_blank" rel="noopener noreferrer">Ouest-France</a>)</li>
       <li>On the national day of action, Sat 17 Oct, about 550,000 marched per the Interior Ministry (110,000 in Paris); the CGT says 800,000.
         (<a href="https://www.theguardian.com/world/2026/oct/17/protests-france-high-prices-social-security-gilets-jaunes" target="_blank" rel="noopener">Guardian</a>,
         <a href="https://www.bbc.com/news/articles/c574pdzl0k4no" target="_blank" rel="noopener">BBC</a>)</li>
-      <li>Latest official national tally: the Interior Ministry counted 2,397 interpellations on 17 Oct and 997 police and gendarmes injured, 7 seriously.
+      <li>Official national tally for 17 Oct: the Interior Ministry counted 2,397 interpellations and 997 police and gendarmes injured, 7 seriously.
         (<a href="https://www.rtl.fr/actu/justice-faits-divers/mobilisation-du-17-octobre-2-397-interpellations-dans-toute-la-france-7-membres-des-forces-de-l-ordre-grievement-blesses-7900686560" target="_blank" rel="noopener noreferrer">RTL</a>,
         <a href="https://www.rfi.fr/fr/en-bref/20261018-france-2397-interpellations-997-policiers-et-gendarmes-bless%C3%A9s-dont-7-graves" target="_blank" rel="noopener noreferrer">RFI</a>,
-        <a href="https://www.bfmtv.com/police-justice/violences-du-7-octobre-le-ministere-de-l-interieur-recense-2-397-interpellations-997-policiers-et-gendarmes-blesses-dont-7-graves_AD-202610180350.html" target="_blank" rel="noopener noreferrer">BFMTV/AFP</a>)</li>
-      <li>Justice Minister Gérald Darmanin said on TF1 on 19 Oct that 2,513 people had been held in custody (gardes à vue) since Saturday and 67 jailed.
-        (<a href="https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php" target="_blank" rel="noopener noreferrer">Le Parisien live</a>)</li>
+        <a href="https://www.bfmtv.com/police-justice/violences-du-7-octobre-le-ministere-de-l-interieur-recense-2-397-interpellations-997-policiers-et-gendarmes-blesses-dont-7-graves_AD-202610180350.html" target="_blank" rel="noopener noreferrer">BFMTV/AFP</a>) On 23 Oct it gave about 2,400 arrests on 17 Oct plus about 500 more since, after investigations, and 8 IGPN (police watchdog) inquiries into 17–18 Oct.
+        (<a href="https://www.franceinfo.fr/societe/manifestations/blindes-unites-d-elite-70-000-policiers-et-gendarmes-laurent-nunez-detaille-l-important-dispositif-de-securite-mobilise-pour-les-manifestations-du-24-octobre_8250754.html" target="_blank" rel="noopener noreferrer">franceinfo</a>)</li>
+      <li>Justice Minister Gérald Darmanin cited 149 incarcerations and more than 800 people brought before a magistrate on 20 Oct, then 174 incarcerations on 21 Oct. PM Lecornu said on 20 Oct that "1,000" police and gendarmes were injured over the weekend.
+        (<a href="https://www.tf1info.fr/societe/en-direct-manifestation-17-octobre-pillages-heurts-violences-urbaines-des-couvre-feux-partiels-instaures-laurent-nunez-promet-plus-de-policiers-2470892.html" target="_blank" rel="noopener noreferrer">TF1 Info live</a>, <a href="https://www.jeanmarcmorandini.com/article-655277-en-direct-chaos-les-rassemblements-et-manifestations-interdits-demain-de-8h-a-20h-dans-certains-secteurs-de-paris-les-couvre-feux-reconduits-ce-soir-dans-plusieurs-villes-de-france-dont-paris-et-lyon.html?amp" target="_blank" rel="noopener noreferrer">Morandini live, quoting the minister</a>)</li>
       <li>About 3,000 businesses were looted or vandalised according to PM Lecornu; CCI France says about 2,000 were directly hit. Commerce Minister Serge Papin says "at least 3,000" were damaged or looted over the weekend.
         (<a href="https://www.nbcnews.com/world/europe/france-violence-riots-looting-paris-limoges-curfews-macron-protests-rcna604292" target="_blank" rel="noopener">NBC</a>,
         <a href="https://www.bbc.com/news/live/c893v4gx2e47t" target="_blank" rel="noopener">BBC live</a>,
         <a href="https://www.lefigaro.fr/actualite-france/en-direct-violences-manifestations-pillages-degats-paris-allocution-macron-17-octobre-emutes-20261019" target="_blank" rel="noopener noreferrer">Le Figaro live</a>)</li>
-      <li>First local curfews, Mon 19 Oct: Paris 23:00–06:00 around place de la République and the streets to Les Halles; Lyon hyper-centre and Presqu'île 21:00–06:00; Nice, minors in the city centre 21:00–06:00; Lille, Douai, Wattignies and Denain, unaccompanied minors 20:00–06:00.
-        (<a href="https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php" target="_blank" rel="noopener noreferrer">Le Parisien live</a>)</li>
-      <li>Next days of action: Thu 22 Oct, high-school students (the Coordination nationale lycéenne calls lycéens out on 22 and 24 Oct); Sat 24 Oct, gilets jaunes "Acte II"; 5 Nov, CGT day of strikes and demonstrations.
-        (<a href="https://www.lefigaro.fr/actualite-france/en-direct-violences-manifestations-pillages-degats-paris-allocution-macron-17-octobre-emutes-20261019" target="_blank" rel="noopener noreferrer">Le Figaro live</a>, <a href="https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php" target="_blank" rel="noopener noreferrer">Le Parisien live</a>)</li>
+      <li>Sat 24 Oct, national day of action (gilets jaunes "Acte II"): 410,000 marched per the Interior Ministry (110,000 in Paris); the CGT says 800,000. With 70,000 police and gendarmes deployed, Interior Minister Laurent Nuñez gave about 1,000 arrests by about 19:00 Paris (versus 389 or 385, depending on the outlet, at the same hour on 17 Oct), said the marches "went well" and that no public buildings were attacked. Local counts: Paris 65 arrests, Marseille 51 and 3 shops looted or damaged, Nice 61, Nantes 39.
+        (<a href="https://www.ouest-france.fr/societe/manifestation/direct-manifestations-les-corteges-se-sont-bien-passes-estime-laurent-nunez-qui-annonce-1-000-interpellations-5b125080-8251-4d40-8a5d-87fe322b743a" target="_blank" rel="noopener noreferrer">Ouest-France live</a>, <a href="https://www.france24.com/fr/info-en-continu/20261024-journ%C3%A9e-de-mobilisation-pour-le-pouvoir-d-achat-les-derniers-d%C3%A9veloppements" target="_blank" rel="noopener noreferrer">France 24/AFP</a>, <a href="https://www.rtl.fr/actu/politique/en-direct-mobilisation-du-24-octobre-70-000-policiers-et-gendarmes-des-manifestations-prevues-partout-en-france-pour-l-acte-2-du-mouvement-7900688880" target="_blank" rel="noopener noreferrer">RTL live</a>, <a href="https://www.nicepremium.fr/actualites/manifestation-du-24-octobre-a-nice-61-interpellations-apres-des-affrontements-avec-des-militants-dultra-droite/" target="_blank" rel="noopener noreferrer">Nice Premium</a>, <a href="https://www.franceinfo.fr/societe/manifestations/blindes-unites-d-elite-70-000-policiers-et-gendarmes-laurent-nunez-detaille-l-important-dispositif-de-securite-mobilise-pour-les-manifestations-du-24-octobre_8250754.html" target="_blank" rel="noopener noreferrer">franceinfo</a>)</li>
+      <li>Curfews: the first came on Mon 19 Oct in Paris, Lyon, Lille, Nice and Bordeaux, and Lyon's has been renewed. From Fri 23 to Mon 26 Oct morning, unaccompanied minors are under a 20:00–06:00 curfew in parts of Lille, Denain, Douai, Wattignies, Marly and Valenciennes; Orléans has an under-15 curfew on the nights of 24–25 and 25–26 Oct; Toulon (minors, 24 Oct), Perpignan, Nantes and Saint-Nazaire also have orders.
+        (<a href="https://www.ledauphine.com/social/2026/10/20/couvre-feu-interdiction-de-manifester-etat-d-urgence-quelles-differences" target="_blank" rel="noopener noreferrer">Le Dauphiné</a>, <a href="https://www.jeanmarcmorandini.com/article-655277-en-direct-chaos-les-rassemblements-et-manifestations-interdits-demain-de-8h-a-20h-dans-certains-secteurs-de-paris-les-couvre-feux-reconduits-ce-soir-dans-plusieurs-villes-de-france-dont-paris-et-lyon.html?amp" target="_blank" rel="noopener noreferrer">Morandini live</a>, <a href="https://www.rtl.fr/actu/politique/en-direct-mobilisation-du-24-octobre-70-000-policiers-et-gendarmes-des-manifestations-prevues-partout-en-france-pour-l-acte-2-du-mouvement-7900688880" target="_blank" rel="noopener noreferrer">RTL live</a>, <a href="https://www.ouest-france.fr/societe/manifestation/direct-manifestations-les-corteges-se-sont-bien-passes-estime-laurent-nunez-qui-annonce-1-000-interpellations-5b125080-8251-4d40-8a5d-87fe322b743a" target="_blank" rel="noopener noreferrer">Ouest-France live</a>)</li>
+      <li>Next dates: Sat 31 Oct, a gilets jaunes call; 5 Nov, a CGT day of strikes and demonstrations.
+        (<a href="https://www.ouest-france.fr/societe/manifestation/direct-manifestations-les-corteges-se-sont-bien-passes-estime-laurent-nunez-qui-annonce-1-000-interpellations-5b125080-8251-4d40-8a5d-87fe322b743a" target="_blank" rel="noopener noreferrer">Ouest-France live</a>, <a href="https://www.leparisien.fr/societe/direct-violences-du-17-octobre-des-pillages-dans-plusieurs-villes-cette-nuit-117-interpellations-a-paris-dimanche-19-10-2026-TJZ4ZXNKIRFWRGYEGTESXINTD4.php" target="_blank" rel="noopener noreferrer">Le Parisien live, 19 Oct</a>)</li>
     </ul>
-    <p class="disclaimer"><strong>Read this first:</strong> only incidents named by news outlets are mapped, not the full ~2,000–3,000 businesses hit. Data as of Oct 19, 2026. No private individuals are named. Locations are geocoded approximations.</p>
-    <p class="updated">Last updated: 19 Oct 2026, ~4:30 PM ET (22:30 Paris)</p>
+    <p class="disclaimer"><strong>Read this first:</strong> only incidents named by news outlets are mapped, not the full ~2,000–3,000 businesses hit. The 2–16 Oct rows are the serious located incidents from the school-blockade movement, not every event. Data as of Oct 24, 2026. No private individuals are named. Locations are geocoded approximations.</p>
+    <p class="updated">Last updated: 24 Oct 2026, ~7:40 PM ET (25 Oct, 01:40 Paris)</p>
     <p id="print-note" class="print-only"></p>
 
     <section id="mix-sec" aria-labelledby="mix-h">
@@ -83,7 +86,7 @@
         <label><input type="checkbox" value="fire_building" checked> Fire (building)</label>
       </fieldset>
       <label class="field">City <select id="f-city"><option value="">All cities</option></select></label>
-      <h3 class="sub" id="tl-h">Timeline</h3>
+      <h3 class="sub" id="tl-h">Timeline <span id="tl-span" class="sub-span"></span></h3>
       <p class="hint">Incidents per day that match the other filters. Select a day to show only that day; select it again for all days.</p>
       <ol id="timeline" aria-labelledby="tl-h"></ol>
       <div class="dates">

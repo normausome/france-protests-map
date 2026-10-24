@@ -201,10 +201,10 @@ function renderTimeline() {
     const n = total(counts);
     const solo = state.from === day && state.to === day;
     const bar = el('span', { className: 'tbar' });
-    bar.style.height = `${n ? Math.max(3, (100 * n) / max) : 0}%`;
+    bar.style.height = `${n ? Math.max(6, (100 * n) / max) : 0}%`;
     counts.forEach((k, i) => { if (k) { const s = el('span', { className: `sev-${i}` }); s.style.flex = k; bar.append(s); } });
-    const b = el('button', { type: 'button', className: day >= state.from && day <= state.to ? '' : 'out' },
-      el('span', { className: 'n' }, String(n)), bar, el('span', { className: 'd' }, fmtDay(day)));
+    const b = el('button', { type: 'button', className: `${day >= state.from && day <= state.to ? '' : 'out'}${n ? '' : ' none'}`.trim() },
+      el('span', { className: 'n' }, n ? String(n) : ''), bar, el('span', { className: 'd' }, String(Number(day.slice(8)))));
     b.setAttribute('aria-pressed', String(solo));
     b.setAttribute('aria-label', `${fmtDay(day, true)}: ${n} incidents${solo ? ' (only this day shown)' : ''}`);
     b.addEventListener('click', () => {
@@ -357,8 +357,13 @@ function setup(data) {
     d._marker = marker(d);
     d._text = fold([d.city, d.location, d.business_name, d.business_type, d.description, TYPES[d.type], d.source_name, d.date].join(' '));
   });
-  days = [...new Set(incidents.map((d) => d.date))].sort();
-  [range.min, range.max] = [days[0], days[days.length - 1]];
+  // Every calendar day from the first to the last incident, so quiet days show as gaps on the timeline.
+  const seen = [...new Set(incidents.map((d) => d.date))].sort();
+  [range.min, range.max] = [seen[0], seen[seen.length - 1]];
+  days = [];
+  for (let t = Date.parse(`${range.min}T12:00:00Z`); t <= Date.parse(`${range.max}T12:00:00Z`); t += 864e5) days.push(new Date(t).toISOString().slice(0, 10));
+  const span = $('tl-span');
+  if (span) span.textContent = `${fmtDay(range.min)} – ${fmtDay(range.max)} ${range.max.slice(0, 4)}`;
   cities = [...new Set(incidents.map((d) => d.city))].sort((a, b) => a.localeCompare(b, 'fr'));
 
   document.querySelectorAll('#filters input[type=checkbox]').forEach((cb) => {
